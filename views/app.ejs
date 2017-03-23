@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title><%= title%></title>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <style>
+            .parameters {
+                width: 900px;
+            }
+            .submit {
+                float:right;
+            }
+            .list {
+                width: 100%;
+                min-height: 70px;
+                resize: none;
+                font-size:15px;
+            }
+        </style>
+    </head>
+    <%
+        var keywords = data.keywords;
+        var numbers = data.numbers;
+        var pricechart = data.pricechart;
+    %>
+        <div class="container">
+
+            <h1>PARAMETERS</h1>
+                <button class="submit btn btn-primary">UPDATE</button>
+                <br>
+                <br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:80px;">PARAMETER</th>
+                        <th>VALUES(separated by "&lt;value&gt;" and space)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>keywords</td>
+                        <td>
+                            <textarea id="keywords" name="keywords" class="list"><%= JSON.stringify(keywords) %></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>numbers</td>
+                        <td>
+                            <textarea id="numbers" name="numbers" class="list"><%= JSON.stringify(numbers) %></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>price chart</td>
+                        <td>
+                            <textarea id="pricechart" name="pricechart" class="list" rows="60"><%= JSON.stringify(pricechart, null, 4); %></textarea>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <button class="submit btn btn-primary">UPDATE</button>
+            <br>
+            <br>
+            <br>
+        </div>
+    <script>
+        $('.submit').on('click', function(e) {
+            var data = {
+                    "keywords" : $('#keywords').val(),
+                    "numbers" : $('#numbers').val(),
+                    "pricechart" : $('#pricechart').val()
+            }
+            $.ajax({
+                url: '/',
+                type: "POST",
+                data: JSON.stringify(data),
+                contentType : "application/json"
+            }).done(function(data) {
+                if(data.err) {
+                    alert(data.err);
+                } else {
+                    alert('Update success! :)');
+                    location.reload();
+                }
+            }).fail(function(err) {
+                alert(err.statusText);
+            });
+        });
+    </script>
+</html>
