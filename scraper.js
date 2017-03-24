@@ -22,8 +22,8 @@ var formerData = {
     title : null
 };
 
-var HOST = 'http://ikman.lk/en/';
-var page =  HOST + 'ads/sri-lanka/cars?sort=date&by_paying_member=0&type=for_sale&filters%5B0%5D%5Btype%5D=money&filters%5B0%5D%5Bkey%5D=price&filters%5B0%5D%5Bmin%5D=175000&filters%5B0%5D%5Bmax%5D=32590000&filters%5B0%5D%5Bminimum%5D=&filters%5B0%5D%5Bmaximum%5D=&filters%5B1%5D%5Btype%5D=enum&filters%5B1%5D%5Bkey%5D=brand&filters%5B2%5D%5Btype%5D=numeric&filters%5B2%5D%5Bkey%5D=model_year&filters%5B2%5D%5Bmin%5D=1950&filters%5B2%5D%5Bmax%5D=2017&filters%5B2%5D%5Bminimum%5D=2001&filters%5B2%5D%5Bmaximum%5D=2013&filters%5B3%5D%5Btype%5D=enum&filters%5B3%5D%5Bkey%5D=condition&filters%5B4%5D%5Btype%5D=enum&filters%5B4%5D%5Bkey%5D=transmission&filters%5B5%5D%5Btype%5D=enum&filters%5B5%5D%5Bkey%5D=body&filters%5B6%5D%5Btype%5D=numeric&filters%5B6%5D%5Bkey%5D=mileage&filters%5B6%5D%5Bmin%5D=0&filters%5B6%5D%5Bmax%5D=960000&filters%5B6%5D%5Bminimum%5D=&filters%5B6%5D%5Bmaximum%5D=';
+var HOST = 'http://ikman.lk/';
+var page =  HOST + 'en/ads/sri-lanka/cars';
 
 //var keywords = ['keyword','toyota','waho'];
 var keywords = [];
